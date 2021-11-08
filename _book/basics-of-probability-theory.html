@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 Basics of probability theory | Some of Statistics</title>
+<meta name="author" content="Quang Nguyen">
+<meta name="description" content="2.1 Definition of probability The basics of probability can be drawn from set theory. The realization of an experiment is often a discrete set of outcomes, for example when you toss a coin the two...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 2 Basics of probability theory | Some of Statistics">
+<meta property="og:type" content="book">
+<meta property="og:description" content="2.1 Definition of probability The basics of probability can be drawn from set theory. The realization of an experiment is often a discrete set of outcomes, for example when you toss a coin the two...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 Basics of probability theory | Some of Statistics">
+<meta name="twitter:description" content="2.1 Definition of probability The basics of probability can be drawn from set theory. The realization of an experiment is often a discrete set of outcomes, for example when you toss a coin the two...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Some of Statistics</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About this book</a></li>
+<li class="book-part">Probability concepts</li>
+<li><a class="active" href="basics-of-probability-theory.html"><span class="header-section-number">2</span> Basics of probability theory</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">3</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">4</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">5</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">6</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">7</span> Sharing your book</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="basics-of-probability-theory" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Basics of probability theory<a class="anchor" aria-label="anchor" href="#basics-of-probability-theory"><i class="fas fa-link"></i></a>
+</h1>
+<div id="definition-of-probability" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Definition of probability<a class="anchor" aria-label="anchor" href="#definition-of-probability"><i class="fas fa-link"></i></a>
+</h2>
+<p>The basics of probability can be drawn from set theory. The realization of an experiment is often a discrete set of outcomes, for example when you toss a coin the two possible outcomes per coin toss is either heads or tails. As such probability is all about operations on the set of outcomes and quantify such outcomes as numbers. Let’s define the first theorem of probability, the <em>sample space</em>:</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 2.1  (Definition of a sample space) </strong></span>The set <span class="math inline">\(S\)</span> of all possible outcomes of a particular experiment is called the <em>sample space</em> of the experiment</p>
+</div>
+<p>For the example of coin tossing, <span class="math inline">\(S = \{H, T\}\)</span> where <span class="math inline">\(H\)</span> is heads and <span class="math inline">\(T\)</span> is tails. When an experiment is performed multiple times, we can collect a set of occurrences such as <span class="math inline">\(T = \{ H, T, T, H\}\)</span> for a coin tossing experiment where a coin was tossed 4 times. The “frequency of occurrence” can be thought of as a probability.</p>
+<!-- insert stuff about sigma algebras later -->
+<p>We can define the probability that event <span class="math inline">\(A\)</span> occurs as the simple <span class="math inline">\(P(A)\)</span> which is a function of belief about the chances of <span class="math inline">\(A\)</span> occurring. Usually the simplest way to think of probabilities is in terms of frequency of occurrences.</p>
+<p><span class="math display">\[
+P(A) = \frac{\text{# of times A can occur}}{\text{# of possible (unique) outcomes in the sample space}}
+\]</span></p>
+<p>For coin tossing example, the probability of heads for a single coin toss is <span class="math inline">\(P(A = H) = \frac{1}{2}\)</span> where there are only two possible options (H or T) and only 1 time H can occur a single coin toss.</p>
+<p>Even though we can develop our own intuition about probabilities, at the end of the day <span class="math inline">\(P(A)\)</span> is still a function. This function has the following axiomatic properties<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;George Casella and Roger L. Berger, &lt;em&gt;Statistical Inference&lt;/em&gt;, 2nd ed (Australia ; Pacific Grove, CA: Thomson Learning, 2002).&lt;/p&gt;"><sup>1</sup></a></span></p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(0 &lt; P(A) &lt; 1\)</span></li>
+<li>
+<span class="math inline">\(\sum_i^S P(s_i) = 1\)</span> for all <span class="math inline">\(s_i \in S\)</span> where <span class="math inline">\(S\)</span> is the set of all possible outcomes (as above)</li>
+<li>All outcomes in <span class="math inline">\(S\)</span> must be disjoint.</li>
+</ol>
+</div>
+<div id="counting" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> Counting<a class="anchor" aria-label="anchor" href="#counting"><i class="fas fa-link"></i></a>
+</h2>
+<p>Since probabilities are all about finding all possible outcomes, counting is very relevant to this process. Most often, counting methods are used in order to construct probability assignments on finite sample spaces. A lot of the counting methods can be employed boils down to two features of the question at hand: a) Do we care about the order of the objects being counted?; b) Are we replacing objects back into the “bag” once we counted them (replacement). As such, we can construct the following 2x2 table.</p>
+<p>Here, <span class="math inline">\(n\)</span> is the number of objects, <span class="math inline">\(r\)</span> is the size of the sample. For example if we’re drawing 3 marbles out of a bag of 10, then <span class="math inline">\(n = 10\)</span> and <span class="math inline">\(r = 3\)</span></p>
+<div class="inline-table"><table style="width:96%;" class="table table-sm">
+<colgroup>
+<col width="18%">
+<col width="33%">
+<col width="44%">
+</colgroup>
+<thead><tr class="header">
+<th></th>
+<th>Without replacement</th>
+<th>With replacement</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Ordered</td>
+<td><span class="math display">\[
+\frac{n!}{(n - r)!}
+\]</span></td>
+<td><span class="math display">\[
+n^r
+\]</span></td>
+</tr>
+<tr class="even">
+<td>Unordered</td>
+<td><span class="math display">\[
+n \choose r
+\]</span></td>
+<td><span class="math display">\[
+ n + r - 1  \choose r
+\]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="conditional-probabilities" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> Conditional probabilities<a class="anchor" aria-label="anchor" href="#conditional-probabilities"><i class="fas fa-link"></i></a>
+</h2>
+<p>The properties of probabilities we’ve defined prior only refer to one or two events that is defined with respect to the sample space <span class="math inline">\(S\)</span>, that is to say the total number of possible unique outcomes is still the denominator of our probability calculation equation.</p>
+<p>However, there are instances where we have to events that might not be disjointed, where we want to know the <em>conditional probability</em>, or the probability that an event occurred given the result of another event, e.g. <span class="math inline">\(P(A \text{ given } B)\)</span>. Intuitively speaking, the frequency of occurrence formula that we have is:<br><span class="math display">\[
+P(A | B) = \frac{\text{# of events where A and B both occur}}{\text{# of events where B occur}}
+\]</span> Essentially we’ve changed the denominator from all possible unique events in the sample space and only consider those where B has occurred because that is the <em>context</em> in which we’re operating with a conditional probability.</p>
+<p>As such, we have: <span class="math display">\[
+P(A | B) = \frac{P(A \cap B)}{P(B)}
+\]</span></p>
+</div>
+<div id="properties-of-probabilities" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> Properties of probabilities<a class="anchor" aria-label="anchor" href="#properties-of-probabilities"><i class="fas fa-link"></i></a>
+</h2>
+<p>After using counting methods to figure out the frequency of outcomes and constructing probabilities of events within a set of all possible events, we can then think of how to combine our knowledge of set theory to construct new probabilities without having to count everything again.</p>
+<div id="addition-rules" class="section level3" number="2.4.1">
+<h3>
+<span class="header-section-number">2.4.1</span> Addition rules<a class="anchor" aria-label="anchor" href="#addition-rules"><i class="fas fa-link"></i></a>
+</h3>
+<p>For disjoint sets of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then we can define the probability of <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> occurring, e.g. <span class="math inline">\(P(A \cup B)\)</span> as <span class="math inline">\(P(A) + P(B)\)</span>. However, if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not disjoint (a.k.a <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> can occur at the same time), then we have the generalized additional formula as <span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span></p>
+</div>
+<div id="multiplication-rules" class="section level3" number="2.4.2">
+<h3>
+<span class="header-section-number">2.4.2</span> Multiplication rules<a class="anchor" aria-label="anchor" href="#multiplication-rules"><i class="fas fa-link"></i></a>
+</h3>
+<p>For disjoint sets of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> we can define the probability of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occuring, e.g. <span class="math inline">\(P(A \cap B)\)</span> as <span class="math inline">\(P(A)P(B)\)</span>. If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not disjoint and therefore not independent, then the generalized formula is <span class="math inline">\(P(A \cap B) = P(A|B)P(B)\)</span></p>
+</div>
+</div>
+<div id="bayes-rule" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> Bayes rule<a class="anchor" aria-label="anchor" href="#bayes-rule"><i class="fas fa-link"></i></a>
+</h2>
+<p>Bayes rule provide a very convenient way to calculate the “switching” of the conditional probabilities:</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-2" class="theorem"><strong>Theorem 2.1  (Bayes rule) </strong></span>For events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, we can calculate the conditional probability <span class="math inline">\(P(A | B)\)</span> as:<br><span class="math display">\[
+P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+\]</span></p>
+<p>Where <span class="math inline">\(P(A)\)</span> is the prior probability of event A occurring and <span class="math inline">\(P(B)\)</span> is the marginal distribution of events where <span class="math inline">\(B\)</span> occurred (similar to our frequency of occurrence definition for conditional probabilities above)</p>
+</div>
+
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html"><span class="header-section-number">1</span> About this book</a></div>
+<div class="next"><a href="cross.html"><span class="header-section-number">3</span> Cross-references</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#basics-of-probability-theory"><span class="header-section-number">2</span> Basics of probability theory</a></li>
+<li><a class="nav-link" href="#definition-of-probability"><span class="header-section-number">2.1</span> Definition of probability</a></li>
+<li><a class="nav-link" href="#counting"><span class="header-section-number">2.2</span> Counting</a></li>
+<li><a class="nav-link" href="#conditional-probabilities"><span class="header-section-number">2.3</span> Conditional probabilities</a></li>
+<li>
+<a class="nav-link" href="#properties-of-probabilities"><span class="header-section-number">2.4</span> Properties of probabilities</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#addition-rules"><span class="header-section-number">2.4.1</span> Addition rules</a></li>
+<li><a class="nav-link" href="#multiplication-rules"><span class="header-section-number">2.4.2</span> Multiplication rules</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#bayes-rule"><span class="header-section-number">2.5</span> Bayes rule</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-prob-theory.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-prob-theory.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Some of Statistics</strong>" was written by Quang Nguyen. It was last built on 2021-11-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

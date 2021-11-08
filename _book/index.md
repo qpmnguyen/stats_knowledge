@@ -1,6 +1,6 @@
---- 
-title: "A Minimal Book Example"
-author: "John Doe"
+---
+title: "Some of Statistics"
+author: "Quang Nguyen"
 date: "2021-11-07"
 site: bookdown::bookdown_site
 documentclass: book
@@ -8,50 +8,46 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::bs4_book,
-  set in the _output.yml file.
+  This is a personal bs4 book to collect notes on stats/ML knowledge. 
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-# About
+# About this book
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+This is a book about some statistical concepts from the basics to perhaps more complicated models. This is a personal project and might contain mistakes. If this book helps you in anyway or if you want to make any corrections, please file a GitHub issue on the [book repository](https://github.com/qpmnguyen/stats_knowledge).
 
-## Usage 
+## Planned Chapters
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+**Section 1: Probability concepts**
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+-   [ ] Basics of probability theory
 
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+-   [ ] Random variables and expectations
 
-## Render book
+-   [ ] Multiple random variables
 
-You can render the HTML version of this example book without changing anything:
+-   [ ] Distributions functions
 
-1. Find the **Build** pane in the RStudio IDE, and
+**Section 2: Hypothesis testing**
 
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
+-   [ ] Properties of random samples
+-   [ ] Principles of summary statistics
+-   [ ] Point and interval estimation
+-   [ ] Asymptotic properties
 
-Or build the book from the R console:
+**Section 3: Regression modeling**
 
+-   [ ] Basic linear regression
 
-```r
-bookdown::render_book()
-```
+-   [ ] Generalized linear models
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+-   [ ] Survival models
 
-## Preview book
+-   [ ] Penalized regression
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+## Future Ideas
 
+-   Bayesian statistics
 
-```r
-bookdown::serve_book()
-```
-
-
-
+-   Machine Learning (for tabular data)
