@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Tree-based Methods | Some of Statistics</title>
+<meta name="author" content="Quang Nguyen">
+<meta name="description" content="This section is heavily adapted from ISLR version 22  3.1 Basics of decision trees  3.1.1 Regression trees Tree-based methods involve stratifying or segmenting the predictor space into a number of...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 3 Tree-based Methods | Some of Statistics">
+<meta property="og:type" content="book">
+<meta property="og:description" content="This section is heavily adapted from ISLR version 22  3.1 Basics of decision trees  3.1.1 Regression trees Tree-based methods involve stratifying or segmenting the predictor space into a number of...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 Tree-based Methods | Some of Statistics">
+<meta name="twitter:description" content="This section is heavily adapted from ISLR version 22  3.1 Basics of decision trees  3.1.1 Regression trees Tree-based methods involve stratifying or segmenting the predictor space into a number of...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Some of Statistics</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About this book</a></li>
+<li class="book-part">Probability concepts</li>
+<li><a class="" href="basics-of-probability-theory.html"><span class="header-section-number">2</span> Basics of probability theory</a></li>
+<li class="book-part">Supervised Statistical Learning</li>
+<li><a class="active" href="tree-based-methods.html"><span class="header-section-number">3</span> Tree-based Methods</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">4</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">5</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">6</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">7</span> Sharing your book</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="tree-based-methods" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Tree-based Methods<a class="anchor" aria-label="anchor" href="#tree-based-methods"><i class="fas fa-link"></i></a>
+</h1>
+<p>This section is heavily adapted from ISLR version 2<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Gareth James et al., &lt;em&gt;An Introduction to Statistical Learning&lt;/em&gt;, vol. 112 (Springer, 2013).&lt;/p&gt;"><sup>2</sup></a></span></p>
+<div id="basics-of-decision-trees" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Basics of decision trees<a class="anchor" aria-label="anchor" href="#basics-of-decision-trees"><i class="fas fa-link"></i></a>
+</h2>
+<div id="regression-trees" class="section level3" number="3.1.1">
+<h3>
+<span class="header-section-number">3.1.1</span> Regression trees<a class="anchor" aria-label="anchor" href="#regression-trees"><i class="fas fa-link"></i></a>
+</h3>
+<p>Tree-based methods involve <em>stratifying or segmenting</em> the predictor space into a number of segmented regions. We then make a prediction by using the mean or mode of the response value for the training observations in the region for which it belongs. However, decision trees are not competitive with other learning approaches, and often users have to use approaches such as <em>random forest</em> which involves producing multiple trees that are combined to yield a single consensus prediction.</p>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="02-cross-refs_insertimage_2.png" alt="Decision boundary division in ISLR" width="75%"><p class="caption">
+Figure 3.1: Decision boundary division in ISLR
+</p>
+</div>
+<p>The regions <span class="math inline">\(R_1\)</span>, <span class="math inline">\(R_2\)</span>, and <span class="math inline">\(R_3\)</span> are terminal nodes or leaves of the tree. The specific points of split (e.g. Years &gt;= 4.5) are the internal nodes of the tree. Essentially, we’re in a decision tree problem we’re dividing the sample space into regions <span class="math inline">\(R_1,...,R_J\)</span> such that it minimizes the residual sum of squares<br><span class="math display">\[
+\sum_{i = 1}^J \sum_{i \in R_j} (y_i - \hat{y}_{R_j})^2
+\]</span>
+Since it’s unreasonable to consider every partition, we take a top-down, greedy approach called recursive binary splitting. The procedure is <em>top-down</em> because it begins at the top of tree (all observations belonging to the same region) and then splits the predictor space. The procedure is <em>greedy</em> because at each step of the tree-building process, the <em>best</em> split is made at that particular step rather than looking ahead and picking a split that will lead to a better tree at a future step.</p>
+<p>However, decision trees are prone to overfitting, which means that it has low bias and large variance since it fits the data perfectly. This is usually represented by really elaborate and “deep trees” (trees with a lot of internal nodes). One way to avoid overfitting is to grow a smaller tree by growing a deep tree and then prune the large tree by adding a complexity penalty. This means calculating at tree that minimizes the following cost function<br><span class="math display">\[
+\sum_{m=1}^{|T|} \sum_{x_i \in R_m} (y_i - \hat{y}_{R_m})^2 + \alpha|T| 
+\]</span>
+The hyperparameter <span class="math inline">\(\alpha\)</span> controls the degree of penalty for deep trees, where higher <span class="math inline">\(\alpha\)</span> means more branches are pruned. This is very similar to the LASSO or Ridge penalties for linear regression.</p>
+</div>
+<div id="classification-trees" class="section level3" number="3.1.2">
+<h3>
+<span class="header-section-number">3.1.2</span> Classification Trees<a class="anchor" aria-label="anchor" href="#classification-trees"><i class="fas fa-link"></i></a>
+</h3>
+<p>A classification tree is very similar to a regression tree, except that it is used to predict a qualitative response rather than a continuous one. For a classification tree, we predict that each observation belongs to the most commonly occurring class of the training observations of the region where it belongs. In addition to what is the class label, we’re interested in the <em>class proportion</em> among the training observations that belong to that region.</p>
+<p>Instead of RSS, we evaluate splits based on the Gini Index, which is defined as:<br><span class="math display">\[
+G = \sum_{k=1}^K \hat{p}_{mk}(1 - \hat{p}_{mk})
+\]</span>
+where <span class="math inline">\(\hat{p}_{mk}\)</span> is the proportion of training observations in the <span class="math inline">\(m\)</span>th region that are from the <span class="math inline">\(k\)</span>th class. The Gini index is a measure of node purity, a small value indicates that the split is predominantly of one class. An alternative to the Gini index is entropy (Shannon’s Entropy)<br><span class="math display">\[
+D = -\sum_{k=1}^K \hat{p}_{mk} \log \hat{p}_{mk}
+\]</span></p>
+<p>Similarly, low entropy also indicates the purity of the node.</p>
+</div>
+<div id="comparing-linear-and-tree-models" class="section level3" number="3.1.3">
+<h3>
+<span class="header-section-number">3.1.3</span> Comparing linear and tree models<a class="anchor" aria-label="anchor" href="#comparing-linear-and-tree-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can compare the form of a linear regression model<br><span class="math display">\[
+f(X) = \beta_0 + \sum_{j = 1}^p X_j\beta_j
+\]</span>
+and a regression tree<br><span class="math display">\[
+f(X) = \sum_{m=1}^M c_m \cdot 1_{X \in R_m}
+\]</span>
+The issue with regression is that it imposes a global linear relationship. If this relationship is obeyed, the linear regression model usually outperforms the decision tree. However, if this relationship is not true (e.g. non linear relationship), then the decision tree is usually better than the classical approach.</p>
+</div>
+<div id="advantages-and-disadvantages-of-trees" class="section level3" number="3.1.4">
+<h3>
+<span class="header-section-number">3.1.4</span> Advantages and disadvantages of trees<a class="anchor" aria-label="anchor" href="#advantages-and-disadvantages-of-trees"><i class="fas fa-link"></i></a>
+</h3>
+<p>Advantages:</p>
+<ul>
+<li>Trees are easy to explain, visualize and is very intuitive.<br>
+</li>
+<li>Trees can be displayed graphically and can handle qualitative predictors withoutt he need to create dummy variables</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Trees do not have the same level of accuracy as regrression approaches<br>
+</li>
+<li>Trees are not robust (small changes in the data can cause large changes in estimated three)</li>
+</ul>
+</div>
+</div>
+<div id="bagging-boosting-and-bayesian-additive-regression-trees" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Bagging, Boosting and Bayesian Additive Regression Trees<a class="anchor" aria-label="anchor" href="#bagging-boosting-and-bayesian-additive-regression-trees"><i class="fas fa-link"></i></a>
+</h2>
+<p>These are <em>ensemble</em> methods which <em>builds many small models</em> (i.e. weak predictors) and combine them to find a single and very powerful model.</p>
+<div id="bagging" class="section level3" number="3.2.1">
+<h3>
+<span class="header-section-number">3.2.1</span> Bagging<a class="anchor" aria-label="anchor" href="#bagging"><i class="fas fa-link"></i></a>
+</h3>
+<p>Bagging is when we combine the idea of the bootstrap and decision trees. This helps solves the issue of <em>high variance</em> by repeatedly creating new data sets and average the predictions across each <em>high variance</em> decision tree.</p>
+<p><strong>Out of Bag Error Estimation (OOB)</strong> is an approach to bagging that produces prediction values based on an OOB evaluation approach rather than the straight forward average prediction of each sample over <span class="math inline">\(B\)</span> bootstrapped training set. Essentially for each bootstrap resample <span class="math inline">\(b\)</span>, we train a tree and predict values for all samples not sampled in <span class="math inline">\(b\)</span>. Since each boostrap resample <span class="math inline">\(b\)</span> on average uses 2/3rds of the data, each sample will have on average <span class="math inline">\(B\)</span>/3 predictions. We average these predictions together to get an OOB prediction for each sample (or majority voting in the case of classifications). This procedure is adopted because OOB error can be used to estimate the test error of abagged model. An OOB MSE or classification error is computed and is a valid estimate of the test error.</p>
+<p><strong>Variable importance measure</strong> while bagged trees are good for prediction, it removes the ease of interpretability that decision trees has. However, there is a method to achieve the average role of a predictor is to record the total sum of the RSS decreased (or Gini index) when the tree is split at that node, averaged over <span class="math inline">\(B\)</span> trees. Large value indicates that the variable is very important (always chosen across <span class="math inline">\(B\)</span> trees and decreased a large amount of our objective function).</p>
+<p><strong>Random Forest</strong> is a bagged tree model that add a tweak to <em>decorrelate</em> the trees. This is achieved by randomly sampling the <span class="math inline">\(m\)</span> predictors as candidates instead of the full <span class="math inline">\(p\)</span> number of predictors. We typically choose <span class="math inline">\(m = \sqrt{p}\)</span>. This is because when you have similarly strong predictor splits, you would always build very similar trees (hence trees are <em>correlated</em>). When averaging over these correlated trees, you’re not gaining any new information from the resampling procedure (since you’re just getting the same tree again and again and again) and will not lead to the reduction in variance of the prediction.</p>
+</div>
+<div id="boosting" class="section level3" number="3.2.2">
+<h3>
+<span class="header-section-number">3.2.2</span> Boosting<a class="anchor" aria-label="anchor" href="#boosting"><i class="fas fa-link"></i></a>
+</h3>
+<p>Boosting is a general approach similar to bagging that can be add to any statistical learning approach. Boosting works similar to bagging, but instead of parallell trees, trees are constructed sequentially: each tree is grown using information from previously grown trees (which is why it is more computationally expensive – bagged models can be done in parallel).</p>
+<div class="figure">
+<img src="02-tree-methods_insertimage_2.png" style="width:75.0%" alt=""><p class="caption">Boosting algorithm</p>
+</div>
+<p>By fitting trees to the residuals, we’re actually adding a different model to tackle a portion of the relationship that was not captured by the previous model. Boosted models usually have a number of hyperparameters:</p>
+<ol style="list-style-type: decimal">
+<li>The number of trees <span class="math inline">\(B\)</span>. Boosted models can overfit if <span class="math inline">\(B\)</span> is too large but this process is slow. We can use cross validation to select <span class="math inline">\(B\)</span>.<br>
+</li>
+<li>The shrinkage parameter <span class="math inline">\(\lambda\)</span>. This controls the rate in which the boosting learns. Typical choices are 0.01, 0.001 and it depends on the problem. Small <span class="math inline">\(\lambda\)</span> require large values of <span class="math inline">\(B\)</span> to have good performance.<br>
+</li>
+<li>The number of splits in a tree, which controls the complexity of the boosted ensemble. Often <span class="math inline">\(d = 1\)</span> works well, which the tree is a <em>stump</em> having only one split. <span class="math inline">\(d\)</span> is also conisdered the interaction depth, which controls the interaction order of the boosted model.</li>
+</ol>
+<p>Usually even <em>stump</em> models are really good and outperforms high order interaction models and random forest</p>
+</div>
+<div id="bayesian-additive-regression-trees" class="section level3" number="3.2.3">
+<h3>
+<span class="header-section-number">3.2.3</span> Bayesian additive Regression Trees<a class="anchor" aria-label="anchor" href="#bayesian-additive-regression-trees"><i class="fas fa-link"></i></a>
+</h3>
+<p>BART tries to capture both aspects of random forests and boosted trees, where each tree is constructed in a random manner as in bagging and random forests, and each tree tries to capture signal not yet accounted for in the current model, as in boosting.</p>
+<div class="figure">
+<img src="02-tree-methods_insertimage_3.png" style="width:75.0%" alt=""><p class="caption">BART model</p>
+</div>
+<p>This is done by computing a number of trees <span class="math inline">\(K\)</span> on the entire data (similar to bagging). However, each <span class="math inline">\(K\)</span> trees are also grown sequentially at each iteration <span class="math inline">\(B\)</span> (similar to boosting). BART is essentially trying to bag boosted trees together. The difference is that compared to boosting where each new tree is grown at each residual, we computed a partial residual
+<span class="math display">\[
+r_i = y_i - \sum_{k* &lt; k} \hat{f}^b_{k*}(x_i) - \sum_{k* &gt; k} \hat{f}^{b-1}_{k*}(x_i) 
+\]</span>
+and fit a new tree <span class="math inline">\(\hat{f}_k^b(x)\)</span> to the residual <span class="math inline">\(r_i\)</span> by perturbing the original tree which either changes the structure of the tree by adding or pruning branches or to change the prediction in each terminal node of the tree. BART is termed a Bayesian approach because this perturbation period is similar to sampling from the posterior distribution of the tree space. The algorithm can be viewed as a Markov chain Monte Carlo algorithm. BART models are really good already out of the box.</p>
+
+</div>
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="basics-of-probability-theory.html"><span class="header-section-number">2</span> Basics of probability theory</a></div>
+<div class="next"><a href="parts.html"><span class="header-section-number">4</span> Parts</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#tree-based-methods"><span class="header-section-number">3</span> Tree-based Methods</a></li>
+<li>
+<a class="nav-link" href="#basics-of-decision-trees"><span class="header-section-number">3.1</span> Basics of decision trees</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#regression-trees"><span class="header-section-number">3.1.1</span> Regression trees</a></li>
+<li><a class="nav-link" href="#classification-trees"><span class="header-section-number">3.1.2</span> Classification Trees</a></li>
+<li><a class="nav-link" href="#comparing-linear-and-tree-models"><span class="header-section-number">3.1.3</span> Comparing linear and tree models</a></li>
+<li><a class="nav-link" href="#advantages-and-disadvantages-of-trees"><span class="header-section-number">3.1.4</span> Advantages and disadvantages of trees</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#bagging-boosting-and-bayesian-additive-regression-trees"><span class="header-section-number">3.2</span> Bagging, Boosting and Bayesian Additive Regression Trees</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#bagging"><span class="header-section-number">3.2.1</span> Bagging</a></li>
+<li><a class="nav-link" href="#boosting"><span class="header-section-number">3.2.2</span> Boosting</a></li>
+<li><a class="nav-link" href="#bayesian-additive-regression-trees"><span class="header-section-number">3.2.3</span> Bayesian additive Regression Trees</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/02-tree-methods.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/02-tree-methods.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Some of Statistics</strong>" was written by Quang Nguyen. It was last built on 2021-12-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

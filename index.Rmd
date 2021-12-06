@@ -46,6 +46,14 @@ This is a book about some statistical concepts from the basics to perhaps more c
 
 -   [ ] Penalized regression
 
+**Section 4: Supervised Statistical Learning**
+
+-   [x] Tree models
+
+-   [ ] Support vector machines
+
+-   [ ] k Nearest Neighbors
+
 ## Future Ideas
 
 -   Bayesian statistics

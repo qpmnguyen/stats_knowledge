@@ -1,5 +1,4 @@
-fig:nice-fig
-tab:nice-tab
+fig:unnamed-chunk-2
 eq:binom
 about-this-book
 planned-chapters
@@ -12,9 +11,16 @@ properties-of-probabilities
 addition-rules
 multiplication-rules
 bayes-rule
-cross
-chapters-and-sub-chapters
-captioned-figures-and-tables
+tree-based-methods
+basics-of-decision-trees
+regression-trees
+classification-trees
+comparing-linear-and-tree-models
+advantages-and-disadvantages-of-trees
+bagging-boosting-and-bayesian-additive-regression-trees
+bagging
+boosting
+bayesian-additive-regression-trees
 parts
 footnotes-and-citations
 footnotes

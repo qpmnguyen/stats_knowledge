@@ -1,7 +1,7 @@
 ---
 title: "Some of Statistics"
 author: "Quang Nguyen"
-date: "2021-11-07"
+date: "2021-12-06"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -45,6 +45,14 @@ This is a book about some statistical concepts from the basics to perhaps more c
 -   [ ] Survival models
 
 -   [ ] Penalized regression
+
+**Section 4: Supervised Statistical Learning**
+
+-   [x] Tree models
+
+-   [ ] Support vector machines
+
+-   [ ] k Nearest Neighbors
 
 ## Future Ideas
 
