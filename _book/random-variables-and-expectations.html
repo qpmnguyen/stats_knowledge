@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>References | Some of Statistics</title>
+<title>Chapter 3 Random variables and expectations | Some of Statistics</title>
 <meta name="author" content="Quang Nguyen">
-<meta name="description" content="Casella, George, and Roger L. Berger. Statistical Inference. 2nd ed. Australia ; Pacific Grove, CA: Thomson Learning, 2002.  James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. An...">
+<meta name="description" content="Random variables are summary variables that allows us to think about probability without having to deal with the original structure. For example, if we’re polling individuals and answers are...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="References | Some of Statistics">
+<meta property="og:title" content="Chapter 3 Random variables and expectations | Some of Statistics">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Casella, George, and Roger L. Berger. Statistical Inference. 2nd ed. Australia ; Pacific Grove, CA: Thomson Learning, 2002.  James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. An...">
+<meta property="og:description" content="Random variables are summary variables that allows us to think about probability without having to deal with the original structure. For example, if we’re polling individuals and answers are...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="References | Some of Statistics">
-<meta name="twitter:description" content="Casella, George, and Roger L. Berger. Statistical Inference. 2nd ed. Australia ; Pacific Grove, CA: Thomson Learning, 2002.  James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. An...">
+<meta name="twitter:title" content="Chapter 3 Random variables and expectations | Some of Statistics">
+<meta name="twitter:description" content="Random variables are summary variables that allows us to think about probability without having to deal with the original structure. For example, if we’re polling individuals and answers are...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -42,11 +42,11 @@
 <li><a class="" href="index.html"><span class="header-section-number">1</span> About this book</a></li>
 <li class="book-part">Probability concepts</li>
 <li><a class="" href="basics-of-probability-theory.html"><span class="header-section-number">2</span> Basics of probability theory</a></li>
-<li><a class="" href="random-variables-and-expectations.html"><span class="header-section-number">3</span> Random variables and expectations</a></li>
+<li><a class="active" href="random-variables-and-expectations.html"><span class="header-section-number">3</span> Random variables and expectations</a></li>
 <li class="book-part">Supervised Statistical Learning</li>
 <li><a class="" href="tree-based-methods.html"><span class="header-section-number">4</span> Tree-based Methods</a></li>
 <li><a class="" href="support-vector-machines.html"><span class="header-section-number">5</span> Support Vector Machines</a></li>
-<li><a class="active" href="references.html">References</a></li>
+<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -54,37 +54,63 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="references" class="section level1 unnumbered">
-<h1>References<a class="anchor" aria-label="anchor" href="#references"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="random-variables-and-expectations" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Random variables and expectations<a class="anchor" aria-label="anchor" href="#random-variables-and-expectations"><i class="fas fa-link"></i></a>
 </h1>
-
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-casella2002" class="csl-entry">
-Casella, George, and Roger L. Berger. <em>Statistical Inference</em>. 2nd ed. Australia ; Pacific Grove, CA: Thomson Learning, 2002.
+<p>Random variables are summary variables that allows us to think about probability without having to deal with the original structure. For example, if we’re polling individuals and answers are either “Yes” or “No,” and the sample space is a string of “Yes” and “No” that is as long as the number of questions and the number of people. However, we can summarize this as the total number of “Yes” that is a natural number and therefore easier to work with.</p>
+<p>A random variable therefore is a function that maps from the sample space <span class="math inline">\(S\)</span> into the real numbers.</p>
+<div id="distribution-functions" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Distribution functions<a class="anchor" aria-label="anchor" href="#distribution-functions"><i class="fas fa-link"></i></a>
+</h2>
+<p>With all distributions, we associate with every random variable <span class="math inline">\(X\)</span> a cumulative distribution function</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 3.1  (Definition of cumulative distribution function) </strong></span>The cumulative distribution function or cdf of a random variable <span class="math inline">\(X\)</span> denoted by <span class="math inline">\(F_X(x)\)</span> is defined by</p>
+<p><span class="math display">\[
+F_X(x) = P_X(X\leq x)
+\]</span></p>
 </div>
-<div id="ref-james2013" class="csl-entry">
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. <em>An Introduction to Statistical Learning</em>. Vol. 112. Springer, 2013.
+<p>We can define whether the random variable <span class="math inline">\(X\)</span> is a continuous based on the characteristics of the CDF. If the CDF is continuous, then <span class="math inline">\(X\)</span> is continuous, if the CDF is a step function, then <span class="math inline">\(X\)</span> is discrete.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 3.2  (Identically distributed variables) </strong></span>The following two statements are equivalent</p>
+<ol style="list-style-type: decimal">
+<li>The random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are identically distributed</li>
+<li>
+<span class="math inline">\(F_X(x) = F_Y(x)\)</span> for every <span class="math inline">\(x\)</span>
+</li>
+</ol>
+</div>
+<p>In addition to the cumulative distribution function is the probability density function or probability mass function. These are called “point probabilities”</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-5" class="definition"><strong>Definition 3.3  (Probability mass function) </strong></span>The probability mass function of a discrete random variable <span class="math inline">\(X\)</span> is given by</p>
+<p><span class="math display">\[
+f_X(x) = P(X = x) 
+\]</span></p>
+<p>The probability density function of a continuous random variable <span class="math inline">\(X\)</span> is the function that satisfies</p>
+<p><span class="math display">\[
+F_X(x) = \int_{-\infty}^{x} f_X(t)\]</span></p>
+</div>
+
 </div>
 </div>
-</div>
-
-
-
-
 
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="support-vector-machines.html"><span class="header-section-number">5</span> Support Vector Machines</a></div>
-<div class="empty"></div>
+<div class="prev"><a href="basics-of-probability-theory.html"><span class="header-section-number">2</span> Basics of probability theory</a></div>
+<div class="next"><a href="tree-based-methods.html"><span class="header-section-number">4</span> Tree-based Methods</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#references">References</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#random-variables-and-expectations"><span class="header-section-number">3</span> Random variables and expectations</a></li>
+<li><a class="nav-link" href="#distribution-functions"><span class="header-section-number">3.1</span> Distribution functions</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/05-references.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/05-references.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/02-random-variables.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/02-random-variables.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

@@ -34,17 +34,18 @@ Since probabilities are all about finding all possible outcomes, counting is ver
 
 Here, $n$ is the number of objects, $r$ is the size of the sample. For example if we're drawing 3 marbles out of a bag of 10, then $n = 10$ and $r = 3$
 
-+------------+-----------------------+-------------------------------+
-|            | Without replacement   | With replacement              |
-+============+=======================+===============================+
-| Ordered    | $$                    | $$                            |
-|            | \frac{n!}{(n - r)!}   | n^r                           |
-|            | $$                    | $$                            |
-+------------+-----------------------+-------------------------------+
-| Unordered  | $$                    | $$                            |
-|            | n \choose r           |  n + r - 1  \choose r         |
-|            | $$                    | $$                            |
-+------------+-----------------------+-------------------------------+
+|           | Without replacement | With replacement      |
+|-----------|---------------------|-----------------------|
+| Ordered   | $$                  
+             \frac{n!}{(n - r)!}  
+             $$                   | $$                    
+                                   n^r                    
+                                   $$                     |
+| Unordered | $$                  
+             n \choose r          
+             $$                   | $$                    
+                                    n + r - 1  \choose r  
+                                   $$                     |
 
 ## Conditional probabilities
 
@@ -79,9 +80,7 @@ Bayes rule provide a very convenient way to calculate the "switching" of the con
 For events $A$ and $B$, we can calculate the conditional probability $P(A | B)$ as:\
 $$
 P(A|B) = \frac{P(B|A)P(A)}{P(B)}
-$$ 
+$$
 
 Where $P(A)$ is the prior probability of event A occurring and $P(B)$ is the marginal distribution of events where $B$ occurred (similar to our frequency of occurrence definition for conditional probabilities above)
 :::
-
-

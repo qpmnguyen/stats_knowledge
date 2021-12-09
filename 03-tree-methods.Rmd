@@ -12,7 +12,7 @@ This section is heavily adapted from ISLR version 2 [@james2013]
 Tree-based methods involve *stratifying or segmenting* the predictor space into a number of segmented regions. We then make a prediction by using the mean or mode of the response value for the training observations in the region for which it belongs. However, decision trees are not competitive with other learning approaches, and often users have to use approaches such as *random forest* which involves producing multiple trees that are combined to yield a single consensus prediction.  
 
 ```{r out.width="75%", fig.cap="Decision boundary division in ISLR", echo=FALSE}
-knitr::include_graphics("02-cross-refs_insertimage_2.png")
+knitr::include_graphics("imgs/three-region.png")
 ```
 The regions $R_1$, $R_2$, and $R_3$ are terminal nodes or leaves of the tree. The specific points of split (e.g. Years >= 4.5) are the internal nodes of the tree. Essentially, we're in a decision tree problem we're dividing the sample space into regions $R_1,...,R_J$ such that it minimizes the residual sum of squares  
 $$
@@ -80,7 +80,7 @@ Bagging is when we combine the idea of the bootstrap and decision trees. This he
 ### Boosting  
 Boosting is a general approach similar to bagging that can be add to any statistical learning approach. Boosting works similar to bagging, but instead of parallell trees, trees are constructed sequentially: each tree is grown using information from previously grown trees (which is why it is more computationally expensive -- bagged models can be done in parallel).  
 
-![Boosting algorithm](02-tree-methods_insertimage_2.png){width=75%}  
+![Boosting algorithm](imgs/boosting.png){width=75%}  
 
 By fitting trees to the residuals, we're actually adding a different model to tackle a portion of the relationship that was not captured by the previous model. Boosted models usually have a number of hyperparameters:  
 
@@ -94,7 +94,7 @@ Usually even *stump* models are really good and outperforms high order interacti
 
 BART tries to capture both aspects of random forests and boosted trees, where each tree is constructed in a random manner as in bagging and random forests, and each tree tries to capture signal not yet accounted for in the current model, as in boosting.  
 
-![BART model](02-tree-methods_insertimage_3.png){width=75%}  
+![BART model](imgs/bart.png){width=75%}  
 
 This is done by computing a number of trees $K$ on the entire data (similar to bagging). However, each $K$ trees are also grown sequentially at each iteration $B$ (similar to boosting). BART is essentially trying to bag boosted trees together. The difference is that compared to boosting where each new tree is grown at each residual, we computed a partial residual 
 $$

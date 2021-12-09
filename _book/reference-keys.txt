@@ -1,5 +1,4 @@
 fig:unnamed-chunk-2
-eq:binom
 about-this-book
 planned-chapters
 future-ideas
@@ -11,6 +10,8 @@ properties-of-probabilities
 addition-rules
 multiplication-rules
 bayes-rule
+random-variables-and-expectations
+distribution-functions
 tree-based-methods
 basics-of-decision-trees
 regression-trees
@@ -21,15 +22,4 @@ bagging-boosting-and-bayesian-additive-regression-trees
 bagging
 boosting
 bayesian-additive-regression-trees
-parts
-footnotes-and-citations
-footnotes
-citations
-blocks
-equations
-theorems-and-proofs
-callout-blocks
-sharing-your-book
-publishing
-pages
-metadata-for-sharing
+support-vector-machines

@@ -42,12 +42,10 @@
 <li><a class="" href="index.html"><span class="header-section-number">1</span> About this book</a></li>
 <li class="book-part">Probability concepts</li>
 <li><a class="active" href="basics-of-probability-theory.html"><span class="header-section-number">2</span> Basics of probability theory</a></li>
+<li><a class="" href="random-variables-and-expectations.html"><span class="header-section-number">3</span> Random variables and expectations</a></li>
 <li class="book-part">Supervised Statistical Learning</li>
-<li><a class="" href="tree-based-methods.html"><span class="header-section-number">3</span> Tree-based Methods</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">4</span> Parts</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">5</span> Footnotes and citations</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">6</span> Blocks</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">7</span> Sharing your book</a></li>
+<li><a class="" href="tree-based-methods.html"><span class="header-section-number">4</span> Tree-based Methods</a></li>
+<li><a class="" href="support-vector-machines.html"><span class="header-section-number">5</span> Support Vector Machines</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -89,11 +87,11 @@ P(A) = \frac{\text{# of times A can occur}}{\text{# of possible (unique) outcome
 </h2>
 <p>Since probabilities are all about finding all possible outcomes, counting is very relevant to this process. Most often, counting methods are used in order to construct probability assignments on finite sample spaces. A lot of the counting methods can be employed boils down to two features of the question at hand: a) Do we care about the order of the objects being counted?; b) Are we replacing objects back into the “bag” once we counted them (replacement). As such, we can construct the following 2x2 table.</p>
 <p>Here, <span class="math inline">\(n\)</span> is the number of objects, <span class="math inline">\(r\)</span> is the size of the sample. For example if we’re drawing 3 marbles out of a bag of 10, then <span class="math inline">\(n = 10\)</span> and <span class="math inline">\(r = 3\)</span></p>
-<div class="inline-table"><table style="width:96%;" class="table table-sm">
+<div class="inline-table"><table class="table table-sm">
 <colgroup>
-<col width="18%">
-<col width="33%">
-<col width="44%">
+<col width="20%">
+<col width="38%">
+<col width="41%">
 </colgroup>
 <thead><tr class="header">
 <th></th>
@@ -103,21 +101,21 @@ P(A) = \frac{\text{# of times A can occur}}{\text{# of possible (unique) outcome
 <tbody>
 <tr class="odd">
 <td>Ordered</td>
-<td><span class="math display">\[
-\frac{n!}{(n - r)!}
-\]</span></td>
-<td><span class="math display">\[
-n^r
-\]</span></td>
+<td><span class="math display">\[                  
+             \frac{n!}{(n - r)!}  
+             \]</span></td>
+<td><span class="math display">\[                    
+                                   n^r                    
+                                   \]</span></td>
 </tr>
 <tr class="even">
 <td>Unordered</td>
-<td><span class="math display">\[
-n \choose r
-\]</span></td>
-<td><span class="math display">\[
- n + r - 1  \choose r
-\]</span></td>
+<td><span class="math display">\[                  
+             n \choose r          
+             \]</span></td>
+<td><span class="math display">\[                    
+                                    n + r - 1  \choose r  
+                                   \]</span></td>
 </tr>
 </tbody>
 </table></div>
@@ -167,12 +165,9 @@ P(A|B) = \frac{P(B|A)P(A)}{P(B)}
 </div>
 </div>
 
-
-
-
   <div class="chapter-nav">
 <div class="prev"><a href="index.html"><span class="header-section-number">1</span> About this book</a></div>
-<div class="next"><a href="tree-based-methods.html"><span class="header-section-number">3</span> Tree-based Methods</a></div>
+<div class="next"><a href="random-variables-and-expectations.html"><span class="header-section-number">3</span> Random variables and expectations</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -204,7 +199,7 @@ P(A|B) = \frac{P(B|A)P(A)}{P(B)}
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Some of Statistics</strong>" was written by Quang Nguyen. It was last built on 2021-12-06.</p>
+    <p>"<strong>Some of Statistics</strong>" was written by Quang Nguyen. It was last built on 2021-12-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

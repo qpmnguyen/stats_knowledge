@@ -1,0 +1,3 @@
+# Support Vector Machines  
+
+This is the chapter with support vector machines  

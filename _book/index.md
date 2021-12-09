@@ -1,7 +1,7 @@
 ---
 title: "Some of Statistics"
 author: "Quang Nguyen"
-date: "2021-12-06"
+date: "2021-12-08"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
